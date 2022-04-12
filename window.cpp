@@ -1,7 +1,9 @@
 #include "window.h"
 
+//some window init code was written with help and inspiration from Lazy Foo Production's online tutorials at https://lazyfoo.net/tutorials/SDL/
+
 Window::Window() {
-	screenWidth = 1280;
+	screenWidth = 480;
 	screenHeight = 720;
 	gameWindow = NULL;
 	gameRenderer = NULL;
@@ -22,7 +24,7 @@ bool Window::init() {
 		return false;
 	}
 	else {
-		gameWindow = SDL_CreateWindow("Super Nate Boyer", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screenWidth, screenHeight, SDL_WINDOW_RESIZABLE);
+		gameWindow = SDL_CreateWindow("Super Nate Boyer", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screenWidth, screenHeight, SDL_WINDOW_INPUT_FOCUS);
 		if (gameWindow == NULL) {
 			printf("SDL Window could not be created. SDL Error: %s\n", SDL_GetError());
 			return false;
@@ -34,7 +36,7 @@ bool Window::init() {
 				return false;
 			}
 			else {
-				SDL_SetRenderDrawColor(gameRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+				SDL_SetRenderDrawColor(gameRenderer, 0xFF, 0xFF, 0xFF, 0x00);
 				int imgFlags = IMG_INIT_PNG | IMG_INIT_JPG;
 				if (IMG_Init(imgFlags) != imgFlags) {
 					printf("SDL Image could not be initialized. SDL Error: %s\n", SDL_GetError());
