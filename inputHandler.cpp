@@ -22,18 +22,18 @@ std::vector<int> inputHandler::handle() {
 		case SDL_QUIT:
 			quit = true;
 			break;
-		case SDL_KEYDOWN:
+		default: 
 			for (int i = 0; i < SDL_NUM_SCANCODES; i++) {
 				if (keyState[i]) {
 					pressedKeys.emplace_back(i);
-					//printf("%d", i);
 				}
 			}
-		default: break;
+			break;
 	}
 	for (int i = 0; i < pressedKeys.size(); i++) {
-		printf("%d\n", pressedKeys[i]);
+		printf("%d, ", pressedKeys[i]);
 	}
+	printf("\n");
 	return pressedKeys;
 }
 
