@@ -3,8 +3,6 @@
 //some window init code was written with help and inspiration from Lazy Foo Production's online tutorials at https://lazyfoo.net/tutorials/SDL/
 
 Window::Window() {
-	screenWidth = 480;
-	screenHeight = 720;
 	gameWindow = NULL;
 	gameRenderer = NULL;
 }
@@ -12,19 +10,17 @@ Window::Window() {
 Window::~Window() {
 	SDL_DestroyWindow(gameWindow);
 	SDL_DestroyRenderer(gameRenderer);
-	screenWidth = NULL;
-	screenHeight = NULL;
 	gameWindow = NULL;
 	gameRenderer = NULL;
 }
 
-bool Window::init() {
+bool Window::init(int screenWidth, int screenHeight) {
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
 		printf("SDL could not be initialized. SDL Error: %s\n", SDL_GetError());
 		return false;
 	}
 	else {
-		gameWindow = SDL_CreateWindow("Super Nate Boyer", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screenWidth, screenHeight, SDL_WINDOW_INPUT_FOCUS);
+		gameWindow = SDL_CreateWindow("AP Project", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screenWidth, screenHeight, SDL_WINDOW_INPUT_FOCUS);
 		if (gameWindow == NULL) {
 			printf("SDL Window could not be created. SDL Error: %s\n", SDL_GetError());
 			return false;

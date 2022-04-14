@@ -144,6 +144,8 @@
   <ItemGroup>
     <ClCompile Include="closeSDL.cpp" />
     <ClCompile Include="font.cpp" />
+    <ClCompile Include="fpsDisplay.cpp" />
+    <ClCompile Include="inputHandler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="renderObj.cpp" />
     <ClCompile Include="gameLoop.cpp" />
@@ -153,11 +155,16 @@
   <ItemGroup>
     <ClInclude Include="closeSDL.h" />
     <ClInclude Include="font.h" />
+    <ClInclude Include="fpsDisplay.h" />
     <ClInclude Include="gameLoop.h" />
     <ClInclude Include="includeSDL.h" />
+    <ClInclude Include="inputHandler.h" />
     <ClInclude Include="renderObj.h" />
     <ClInclude Include="timer.h" />
     <ClInclude Include="window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\square.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
 	// initialize SDL and its window, go to game loop if successfully initialized.
 
 	Window window;
-	if (!window.init()) {
+	if (!window.init(600, 800)) {
 		return 1;
 	}
 	else {

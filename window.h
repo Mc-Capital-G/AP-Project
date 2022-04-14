@@ -7,8 +7,6 @@ public:
 	SDL_Window* gameWindow;
 	Window();
 	~Window();
-	bool init();
-	int screenWidth;
-	int screenHeight;
+	bool init(int screenWidth, int screenHeight);
 private:
 };
