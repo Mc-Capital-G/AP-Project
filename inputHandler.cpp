@@ -5,7 +5,7 @@
 inputHandler::inputHandler() {
 	quit = false;
 	keyState = NULL;
-	pressedKeys = {};
+	pressedKeys = {0};
 }
 
 inputHandler::~inputHandler() {
@@ -13,7 +13,8 @@ inputHandler::~inputHandler() {
 	keyState = NULL;
 }
 
-std::vector<int>* inputHandler::handle() {
+std::vector<int> inputHandler::handle() {
+	pressedKeys.clear();
 	SDL_Event event;
 	SDL_PollEvent(&event);
 	keyState = SDL_GetKeyboardState(NULL);
@@ -22,17 +23,17 @@ std::vector<int>* inputHandler::handle() {
 			quit = true;
 			break;
 		case SDL_KEYDOWN:
-			pressedKeys.clear();
-			for (int i = 0; i < sizeof(keyState); i++) {
+			for (int i = 0; i < SDL_NUM_SCANCODES; i++) {
 				if (keyState[i]) {
-					pressedKeys.emplace_back(keyState[i]);
+					pressedKeys.emplace_back(i);
+					//printf("%d", i);
 				}
 			}
 		default: break;
 	}
-
 	for (int i = 0; i < pressedKeys.size(); i++) {
-		printf("%d", pressedKeys[i]);
+		printf("%d\n", pressedKeys[i]);
 	}
-	return &pressedKeys;
+	return pressedKeys;
 }
+

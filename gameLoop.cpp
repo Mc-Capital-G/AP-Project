@@ -21,8 +21,6 @@ void gameLoop(Window* window) {
 	testSquare.posX = 300 - (testSquare.width/2);
 	testSquare.posY = 400 - (testSquare.height / 2);
 
-
-
 	while (!handler.quit) {
 		handler.handle();
 

@@ -18,7 +18,6 @@ void fpsDisplay::calculate() { // function that calculates framerate and sets th
 	fpsText.str("");
 	std::string fpsOLD = std::to_string(avgFPS);
 	if (fpsOLD != fpsText.str()) {
-		printf("%f", avgFPS);
 		fpsText << round(avgFPS);
 	}
 	countedFrames++;

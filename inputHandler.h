@@ -6,7 +6,7 @@ class inputHandler {
 public:
 	inputHandler();
 	~inputHandler();
-	std::vector<int>* handle();
+	std::vector<int> handle();
 	bool quit;
 private:
 	const Uint8* keyState;
