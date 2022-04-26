@@ -32,7 +32,12 @@ void gameLoop(Window* window) {
 	player.init(window->gameRenderer);
 
 	while (!handler.quit) {
+		
 		handler.handle();
+		if (handler.keyState[SDL_SCANCODE_W]) player.move(UP);
+		if (handler.keyState[SDL_SCANCODE_D]) player.move(RIGHT);
+		if (handler.keyState[SDL_SCANCODE_A]) player.move(LEFT);
+		if (handler.keyState[SDL_SCANCODE_S]) player.move(DOWN);
 
 		FPS.calculate();
 		

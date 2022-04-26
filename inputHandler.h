@@ -8,7 +8,7 @@ public:
 	~inputHandler();
 	std::vector<int> handle();
 	bool quit;
-private:
 	const Uint8* keyState;
+private:
 	std::vector<int> pressedKeys;
 };

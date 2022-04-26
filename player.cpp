@@ -3,6 +3,7 @@
 player::player() {
 	hp = 3;
 	dmg = 1;
+	speed = 5;
 }
 
 void player::init(SDL_Renderer* renderer) {
@@ -14,32 +15,16 @@ void player::init(SDL_Renderer* renderer) {
 void player::move(int direction) {
 	switch (direction) {
 	case UP:
-		posY -= 10;
+		posY -= speed;
 		break;
 	case LEFT:
-		posX -= 10;
+		posX -= speed;
 		break;
 	case RIGHT:
-		posX += 10;
+		posX += speed;
 		break;
 	case DOWN:
-		posY += 10;
-		break;
-	case UPRIGHT:
-		posX += 10;
-		posY -= 10;
-		break;
-	case UPLEFT:
-		posX -= 10;
-		posY -= 10;
-		break;
-	case DOWNRIGHT:
-		posX += 10;
-		posY += 10;
-		break;
-	case DOWNLEFT:
-		posX -= 10;
-		posY += 10;
+		posY += speed;
 		break;
 	default:
 		break;
