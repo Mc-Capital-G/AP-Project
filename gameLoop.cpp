@@ -5,6 +5,7 @@
 #include "font.h"
 #include <sstream>
 #include "fpsDisplay.h"
+#include "enemy.h"
 
 // this is the actual game
 
@@ -21,10 +22,13 @@ void gameLoop(Window* window) {
 	testSquare.posX = 300 - (testSquare.width/2);
 	testSquare.posY = 400 - (testSquare.height / 2);
 
+	std::vector<enemy> enemies = {};
+
 	while (!handler.quit) {
 		handler.handle();
 
 		FPS.calculate();
+		
 
 		// rendering context 
 		SDL_RenderClear(window->gameRenderer); // clear previously rendered frame from renderer 
