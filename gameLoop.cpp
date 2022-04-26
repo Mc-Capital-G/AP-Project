@@ -6,6 +6,7 @@
 #include <sstream>
 #include "fpsDisplay.h"
 #include "enemy.h"
+#include "player.h"
 
 // this is the actual game
 
@@ -16,13 +17,19 @@ void gameLoop(Window* window) {
 
 	fpsDisplay FPS;
 
+	int enemyNum = 15;
 
-	renderObj testSquare;
-	testSquare.createTexture("assets/square.png", window->gameRenderer);
-	testSquare.posX = 300 - (testSquare.width/2);
-	testSquare.posY = 400 - (testSquare.height / 2);
+	std::vector<enemy*> enemies = {};
 
-	std::vector<enemy> enemies = {};
+	for (int i = 0; i <= enemyNum; i++) {
+		enemies.emplace_back(new enemy);
+		enemies[i]->init(window->gameRenderer);
+		enemies[i]->posX = 100 + (30 * i);
+		enemies[i]->posY = 200;
+	}
+
+	player player;
+	player.init(window->gameRenderer);
 
 	while (!handler.quit) {
 		handler.handle();
@@ -37,7 +44,11 @@ void gameLoop(Window* window) {
 		FPS.text.createTex(FPS.fpsText.str(), window->gameRenderer); // create the texture for the fps
 		FPS.text.render(window->gameRenderer); // render the fps 
 
-		testSquare.render(window->gameRenderer);
+		for(int i = 0; i < enemies.size(); i++) {
+			enemies[i]->render(window->gameRenderer);
+		}
+		
+		player.render(window->gameRenderer);
 		SDL_RenderPresent(window->gameRenderer); // render to window
 		SDL_DestroyTexture(FPS.text.tex); // do not delete this line ever - without it fpsDisplay.tex eats memory instantly
 

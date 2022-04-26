@@ -5,8 +5,7 @@ enemy::enemy() {
 	posY = 100;
 	color = { 0xFF, 0x00, 0xFF };
 	hp = 5;
-	dmg = 2;
-	//SDL_SetTextureColorMod(tex, color.r, color.g, color.b);
+	dmg = 1;
 }
 
 void enemy::init(SDL_Renderer* renderer) {
@@ -18,7 +17,7 @@ void enemy::move() {
 }
 
 bool enemy::handleHit() {
-	//hp--;
+	hp--;
 	switch (hp) {
 	case 5:
 		color = { 0xFF, 0x00, 0xFF };
