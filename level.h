@@ -6,11 +6,10 @@ class level {
 public:
 	level(SDL_Renderer* ren);
 	~level();
-	
+	std::vector<enemy*> enemies;
 private:
 	void initEnemies(int enemyNum);
 	SDL_Renderer* renderer;
-	std::vector<enemy*> enemies;
 	int levelNum;
 	int currentWaveNum;
 	int enemiesPerWave;

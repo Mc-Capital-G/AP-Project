@@ -1,6 +1,6 @@
 #include "enemy.h"
 
-enemy::enemy() {
+enemy::enemy(SDL_Renderer* renderer) {
 	posX = 300 - (width / 3);
 	posY = 100;
 	color = { 0xFF, 0x00, 0xFF };
@@ -8,9 +8,6 @@ enemy::enemy() {
 	dmg = 1;
 	speed = 0.5;
 	distMoved = 0;
-}
-
-void enemy::init(SDL_Renderer* renderer) {
 	createTexture("assets/enemy.png", renderer);
 }
 
