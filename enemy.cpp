@@ -14,7 +14,7 @@ void enemy::init(SDL_Renderer* renderer) {
 	createTexture("assets/enemy.png", renderer);
 }
 
-void enemy::move() {
+void enemy::move() { // makes enemies move back and forth on the screen
 	if (distMoved < 50) {
 		posX += speed;
 		distMoved += speed;

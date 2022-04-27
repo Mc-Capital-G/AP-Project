@@ -17,8 +17,8 @@ void gameLoop(Window* window) {
 
 	fpsDisplay FPS;
 
+	// initialize enemies
 	int enemyNum = 50;
-
 	std::vector<enemy*> enemies = {};
 	int prevPosX = 70;
 	int prevPosY = 100;
@@ -34,6 +34,7 @@ void gameLoop(Window* window) {
 		prevPosX = enemies[i]->posX;
 	}
 
+	// create and initialize player
 	player player;
 	player.init(window->gameRenderer);
 
@@ -46,13 +47,14 @@ void gameLoop(Window* window) {
 		if (handler.keyState[SDL_SCANCODE_A]) player.move(LEFT);
 		if (handler.keyState[SDL_SCANCODE_S]) player.move(DOWN);
 
-		FPS.calculate();
+		FPS.calculate(); // calculate framerate
 		
 		for (int i = 0; i < enemies.size(); i++) enemies[i]->move();
 
-		// rendering context 
+		// rendering context -> render things that need to be rendered. 
+		// Objects called to be rendered at the bottom of the list will be rendered last and therefore will be "on top"
 		SDL_RenderClear(window->gameRenderer); // clear previously rendered frame from renderer 
-		SDL_SetRenderDrawColor(window->gameRenderer, 0x00, 0x00, 0x00, 0xFF);
+		SDL_SetRenderDrawColor(window->gameRenderer, 0x00, 0x00, 0x00, 0xFF); // set the default renderer color to make the background a different color
 
 		FPS.text.createTex(FPS.fpsText.str(), window->gameRenderer); // create the texture for the fps
 		FPS.text.render(window->gameRenderer); // render the fps 
