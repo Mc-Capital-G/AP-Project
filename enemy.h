@@ -11,5 +11,7 @@ private:
 	SDL_Color color;
 	int hp;
 	int dmg;
+	float speed;
+	float distMoved;
 };
 

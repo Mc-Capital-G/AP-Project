@@ -11,8 +11,8 @@ public:
 	SDL_Rect* clip;
 	int width;
 	int height;
-	double posX;
-	double posY;
+	float posX;
+	float posY;
 private:
 };
 

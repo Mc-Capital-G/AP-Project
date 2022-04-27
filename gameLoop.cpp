@@ -17,15 +17,21 @@ void gameLoop(Window* window) {
 
 	fpsDisplay FPS;
 
-	int enemyNum = 15;
+	int enemyNum = 50;
 
 	std::vector<enemy*> enemies = {};
-
+	int prevPosX = 70;
+	int prevPosY = 100;
 	for (int i = 0; i <= enemyNum; i++) {
 		enemies.emplace_back(new enemy);
+		if (prevPosX + 60 > 500) {
+			prevPosX = 70;
+			prevPosY += 40;
+		}		
 		enemies[i]->init(window->gameRenderer);
-		enemies[i]->posX = 100 + (30 * i);
-		enemies[i]->posY = 200;
+		enemies[i]->posX = prevPosX + 60; 
+		enemies[i]->posY = prevPosY;
+		prevPosX = enemies[i]->posX;
 	}
 
 	player player;
@@ -33,6 +39,7 @@ void gameLoop(Window* window) {
 
 	while (!handler.quit) {
 		
+		//handle input and move the player accordingly
 		handler.handle();
 		if (handler.keyState[SDL_SCANCODE_W]) player.move(UP);
 		if (handler.keyState[SDL_SCANCODE_D]) player.move(RIGHT);
@@ -41,6 +48,7 @@ void gameLoop(Window* window) {
 
 		FPS.calculate();
 		
+		for (int i = 0; i < enemies.size(); i++) enemies[i]->move();
 
 		// rendering context 
 		SDL_RenderClear(window->gameRenderer); // clear previously rendered frame from renderer 
@@ -55,7 +63,6 @@ void gameLoop(Window* window) {
 		
 		player.render(window->gameRenderer);
 		SDL_RenderPresent(window->gameRenderer); // render to window
-		SDL_DestroyTexture(FPS.text.tex); // do not delete this line ever - without it fpsDisplay.tex eats memory instantly
-
+		SDL_DestroyTexture(FPS.text.tex); // do not delete this line ever - without it FPS.tex eats memory instantly
 	}
 }

@@ -6,6 +6,8 @@ enemy::enemy() {
 	color = { 0xFF, 0x00, 0xFF };
 	hp = 5;
 	dmg = 1;
+	speed = 0.5;
+	distMoved = 0;
 }
 
 void enemy::init(SDL_Renderer* renderer) {
@@ -13,7 +15,19 @@ void enemy::init(SDL_Renderer* renderer) {
 }
 
 void enemy::move() {
-
+	if (distMoved < 50) {
+		posX += speed;
+		distMoved += speed;
+	}
+	else if (distMoved < 150) {
+		posX -= speed;
+		distMoved += speed;
+	}
+	else if (distMoved < 200) {
+		posX += speed;
+		distMoved += speed;
+	}
+	else distMoved = 0;
 }
 
 bool enemy::handleHit() {
