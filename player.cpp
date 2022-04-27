@@ -1,12 +1,9 @@
 #include "player.h"
 
-player::player() {
+player::player(SDL_Renderer* renderer) {
 	hp = 3;
 	dmg = 1;
 	speed = 5;
-}
-
-void player::init(SDL_Renderer* renderer) {
 	createTexture("assets/playerNew.png", renderer);
 	posY = 750;
 	posX = 300 - (width / 2);

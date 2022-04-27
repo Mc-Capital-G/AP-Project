@@ -4,8 +4,7 @@
 
 class player : public renderObj {
 public:
-	player();
-	void init(SDL_Renderer* renderer);
+	player(SDL_Renderer* renderer);
 	void move(int direction);
 private:
 	int hp;

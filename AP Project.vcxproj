@@ -147,6 +147,7 @@
     <ClCompile Include="font.cpp" />
     <ClCompile Include="fpsDisplay.cpp" />
     <ClCompile Include="inputHandler.cpp" />
+    <ClCompile Include="level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="renderObj.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="enums.h" />
     <ClInclude Include="includeSDL.h" />
     <ClInclude Include="inputHandler.h" />
+    <ClInclude Include="level.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="renderObj.h" />
     <ClInclude Include="timer.h" />
