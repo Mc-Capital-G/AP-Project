@@ -175,6 +175,7 @@
     <Image Include="assets\player.png" />
     <Image Include="assets\playerNew.png" />
     <Image Include="assets\square.png" />
+    <Image Include="assets\stars.png" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="assets\PublicPixel-0W5Kv.ttf" />

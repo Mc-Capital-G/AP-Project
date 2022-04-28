@@ -2,11 +2,12 @@
 
 player::player(SDL_Renderer* renderer) {
 	score = 0;
+	lives = 3;
 	hp = 3;
 	dmg = 1;
 	speed = 5;
 	createTexture("assets/playerNew.png", renderer);
-	posY = 750;
+	posY = 725;
 	posX = 300 - (width / 2);
 }
 
@@ -27,16 +28,22 @@ void player::move(int direction) {
 	default:
 		break;
 	}
-	if (posX > 590 - width) {
-		posX = 590 - width;
+	if (posX > 550 - width) {
+		posX = 550 - width;
 	}
-	if (posX < 10) {
-		posX = 10;
+	if (posX < 50) {
+		posX = 50;
 	}
-	if (posY < 650) {
-		posY = 650;
+	if (posY < 525) {
+		posY = 525;
 	}
-	if (posY > 750) {
-		posY = 750;
+	if (posY > 725) {
+		posY = 725;
 	}
+}
+
+std::string player::getStats() {
+	std::stringstream text; 
+	text << "SCORE:" << score << " HP:" << hp << " LIVES:" << lives;
+	return text.str();
 }

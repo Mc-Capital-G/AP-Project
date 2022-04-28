@@ -2,7 +2,7 @@
 
 font::font(std::string path, int fontSize) {
 	fontType = TTF_OpenFont(path.c_str(), fontSize);
-	color = { 0, 0, 0 };
+	color = { 0xFF, 0xFF, 0xFF };
 }
 
 bool font::createTex(std::string renderText, SDL_Renderer* renderer) {
@@ -26,4 +26,12 @@ bool font::createTex(std::string renderText, SDL_Renderer* renderer) {
 		}
 	}
 	return tex != NULL;
+}
+
+void font::display(std::string renderText, SDL_Renderer* renderer, int x, int y) {
+	posX = x;
+	posY = y;
+	createTex(renderText, renderer);
+	render(renderer);
+	SDL_DestroyTexture(tex); // do not delete this line ever - without it tex eats memory instantly
 }

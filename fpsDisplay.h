@@ -5,7 +5,7 @@
 
 class fpsDisplay {
 public:
-	fpsDisplay();
+	fpsDisplay(std::string path, int fontSize);
 	void calculate(SDL_Renderer* renderer);
 	font* text;
 	std::stringstream fpsText;

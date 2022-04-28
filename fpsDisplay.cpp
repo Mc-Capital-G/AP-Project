@@ -1,7 +1,7 @@
 #include "fpsDisplay.h"
 
-fpsDisplay::fpsDisplay() {
-	text = new font("assets/PublicPixel-0W5Kv.ttf", 25);
+fpsDisplay::fpsDisplay(std::string path, int fontSize) {
+	text = new font(path, fontSize);
 	frameCounter.start();
 	text->color = { 0xFF, 0xFF, 0xFF };
 	text->posX = 0;
@@ -24,4 +24,5 @@ void fpsDisplay::calculate(SDL_Renderer* renderer) { // function that calculates
 
 	text->createTex(fpsText.str(), renderer);
 	text->render(renderer);
+	SDL_DestroyTexture(text->tex); // do not delete this line ever - without it tex eats memory instantly
 }
