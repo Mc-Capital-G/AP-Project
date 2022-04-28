@@ -7,6 +7,7 @@ public:
 	player(SDL_Renderer* renderer);
 	void move(int direction);
 private:
+	int score;
 	int hp;
 	int dmg;
 	int speed;

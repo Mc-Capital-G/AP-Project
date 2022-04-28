@@ -4,8 +4,7 @@
 
 class font : public renderObj {
 public:
-	font();
-	void init(std::string path, int fontSize);
+	font(std::string path, int fontSize);
 	bool createTex(std::string renderText, SDL_Renderer* renderer);
 	TTF_Font* fontType;
 	SDL_Color color;

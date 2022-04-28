@@ -1,6 +1,7 @@
 #include "player.h"
 
 player::player(SDL_Renderer* renderer) {
+	score = 0;
 	hp = 3;
 	dmg = 1;
 	speed = 5;

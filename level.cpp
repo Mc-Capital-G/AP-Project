@@ -3,6 +3,7 @@
 level::level(SDL_Renderer* ren) {
 	renderer = ren;
 	enemies = {};
+	levelNum = 1;
 	currentWaveNum = 0;
 	totalWaves = 5;
 	enemiesPerWave = 12;

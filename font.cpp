@@ -1,12 +1,8 @@
 #include "font.h"
 
-font::font() {
-	fontType = NULL;
-	color = { 0, 0, 0 };
-}
-
-void font::init(std::string path, int fontSize) {
+font::font(std::string path, int fontSize) {
 	fontType = TTF_OpenFont(path.c_str(), fontSize);
+	color = { 0, 0, 0 };
 }
 
 bool font::createTex(std::string renderText, SDL_Renderer* renderer) {

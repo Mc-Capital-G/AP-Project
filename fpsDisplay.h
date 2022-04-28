@@ -6,8 +6,8 @@
 class fpsDisplay {
 public:
 	fpsDisplay();
-	void calculate();
-	font text;
+	void calculate(SDL_Renderer* renderer);
+	font* text;
 	std::stringstream fpsText;
 private:
 	int countedFrames = 0;

@@ -176,6 +176,9 @@
     <Image Include="assets\playerNew.png" />
     <Image Include="assets\square.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="assets\PublicPixel-0W5Kv.ttf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
