@@ -173,6 +173,7 @@
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="assets\bullet.png" />
     <Image Include="assets\enemy.png" />
     <Image Include="assets\player.png" />
     <Image Include="assets\playerNew.png" />

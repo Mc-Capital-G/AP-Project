@@ -115,6 +115,9 @@
     <Image Include="assets\stars.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="assets\bullet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="assets\PublicPixel-0W5Kv.ttf">

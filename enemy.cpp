@@ -9,6 +9,7 @@ enemy::enemy(SDL_Renderer* renderer) {
 	speed = 0.5;
 	distMoved = 0;
 	createTexture("assets/enemy.png", renderer);
+	pointVal = 100;
 }
 
 void enemy::move() { // makes enemies move back and forth on the screen

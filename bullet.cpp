@@ -1,7 +1,8 @@
 #include "bullet.h"
 #include "enums.h"
 
-bullet::bullet(int bulletType) {
+bullet::bullet(int bulletType, int x, int y, SDL_Renderer* renderer) {
+	createTexture("assets/bullet.png", renderer);
 	type = bulletType;
 	switch (type) {
 	case NORMAL || ENEMY:
@@ -12,5 +13,12 @@ bullet::bullet(int bulletType) {
 		dmg = 5;
 		speed = 5;
 		break;
+	}
+}
+
+void bullet::move() {
+	posY -= speed;
+	if (posY < 0) {
+
 	}
 }
