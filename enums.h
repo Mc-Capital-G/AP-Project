@@ -10,3 +10,9 @@ enum directions {
 	DOWNRIGHT = 6,
 	DOWNLEFT = 7
 };
+
+enum bulletType {
+	NORMAL = 10,
+	BOMB = 11,
+	ENEMY
+};
