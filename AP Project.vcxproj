@@ -78,8 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\Administrator\Documents\Visual Studio 2019\Libraries\SDL2-2.0.16\include;C:\Users\Administrator\Documents\Visual Studio 2019\Libraries\SDL2_image-2.0.5\include;C:\Users\Administrator\Documents\Visual Studio 2019\Libraries\SDL2_mixer-2.0.4\include;C:\Users\Administrator\Documents\Visual Studio 2019\Libraries\SDL2_ttf-2.0.18\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Administrator\Documents\Visual Studio 2019\Libraries\SDL2-2.0.16\lib\x64;C:\Users\Administrator\Documents\Visual Studio 2019\Libraries\SDL2_image-2.0.5\lib\x64;C:\Users\Administrator\Documents\Visual Studio 2019\Libraries\SDL2_mixer-2.0.4\lib\x64;C:\Users\Administrator\Documents\Visual Studio 2019\Libraries\SDL2_ttf-2.0.18\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Administrator\Documents\Visual Studio 2019\Libraries\SDL2-2.0.16\include;C:\Users\Administrator\Documents\Visual Studio 2019\Libraries\SDL2_image-2.0.5\include;C:\Users\Administrator\Documents\Visual Studio 2019\Libraries\SDL2_mixer-2.0.4\include;C:\Users\Administrator\Documents\Visual Studio 2019\Libraries\SDL2_ttf-2.0.18\include;D:\Files\SDL\SDL2-2.0.14\include;D:\Files\SDL\SDL2_image-2.0.5\include;D:\Files\SDL\SDL2_mixer-2.0.4\include;D:\Files\SDL\SDL2_ttf-2.0.18\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Administrator\Documents\Visual Studio 2019\Libraries\SDL2-2.0.16\lib\x64;C:\Users\Administrator\Documents\Visual Studio 2019\Libraries\SDL2_image-2.0.5\lib\x64;C:\Users\Administrator\Documents\Visual Studio 2019\Libraries\SDL2_mixer-2.0.4\lib\x64;C:\Users\Administrator\Documents\Visual Studio 2019\Libraries\SDL2_ttf-2.0.18\lib\x64;D:\Files\SDL\SDL2-2.0.14\lib\x64;D:\Files\SDL\SDL2_image-2.0.5\lib\x64;D:\Files\SDL\SDL2_mixer-2.0.4\lib\x64;D:\Files\SDL\SDL2_ttf-2.0.18\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
