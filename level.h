@@ -1,6 +1,8 @@
 #pragma once
 #include "enemy.h"
+#include "bullet.h"
 #include <vector>
+#include <iterator>
 
 class level {
 public:

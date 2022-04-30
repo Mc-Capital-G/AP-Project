@@ -47,12 +47,11 @@ bool enemy::handleHit() {
 		color = { 0xFF, 0x00, 0x00 };
 		break;
 	case 0:
-		return 1;
+		return true;
 	default:
 		color = { 0x00, 0x00, 0x00 };
 		break;
 	}
 	SDL_SetTextureColorMod(tex, color.r, color.g, color.b);
-	
-	return 0;
+	return false;
 }

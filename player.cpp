@@ -12,6 +12,7 @@ player::player(SDL_Renderer* renderer) {
 	bulletType = NORMAL;
 	bullets = {};
 	pointToRen = renderer;
+	fireTimer.start();
 }
 
 void player::move(int direction) {
@@ -52,7 +53,10 @@ std::string player::getStats() {
 }
 
 void player::fire() {
-	bullets.emplace_back(new bullet(bulletType, (posX + width/2), posY, pointToRen));
+	if (fireTimer.getTicks() > 100) {
+		bullets.emplace_back(new bullet(bulletType, (posX + width / 2), posY, pointToRen));
+		fireTimer.start();
+	}
 }
 
 void player::handleBullets() {

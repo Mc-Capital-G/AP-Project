@@ -14,13 +14,14 @@ public:
 	std::vector<bullet*> bullets;
 	void fire();
 	void handleBullets();
+	int score;
 private:
 	int lives;
-	int score;
 	int hp;
 	int dmg;
 	int speed;
 	int bulletType;
 	SDL_Renderer* pointToRen;
+	timer fireTimer;
 };
 
