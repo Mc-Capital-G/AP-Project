@@ -43,14 +43,6 @@ void player::move(int direction) {
 	if (posY > 725) {
 		posY = 725;
 	}
-	if (!bullets.empty()) {
-		for (int i = 0; i < bullets.size(); i++) {
-			bullets[i]->move();
-			if (bullets[i]->posY < 0) {
-				delete bullets[i];
-			}
-		}
-	}
 }
 
 std::string player::getStats() {
@@ -60,5 +52,20 @@ std::string player::getStats() {
 }
 
 void player::fire() {
-	bullets.emplace_back(new bullet(bulletType, posX, posY, pointToRen));
+	bullets.emplace_back(new bullet(bulletType, (posX + width/2), posY, pointToRen));
+}
+
+void player::handleBullets() {
+	if (!bullets.empty()) {
+		std::vector<bullet*>::iterator ptr = bullets.begin();
+		for (int i = 0; i < bullets.size(); i++) {
+			bullets[i]->move();
+			if (bullets[i]->posY < 0) {
+				delete bullets[i];
+				bullets.erase(ptr);
+				break;
+			}
+			std::advance(ptr, 1);
+		}
+	}
 }

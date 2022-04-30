@@ -34,6 +34,8 @@ void gameLoop(Window* window) {
 		
 		for (int i = 0; i < level.enemies.size(); i++) level.enemies[i]->move(); // move enemies
 
+		player.handleBullets();
+
 		// rendering context -> render things that need to be rendered. 
 		// Objects called to be rendered at the bottom of the list will be rendered last and therefore will be "on top"
 		SDL_RenderClear(window->gameRenderer); // clear previously rendered frame from renderer 
@@ -49,15 +51,9 @@ void gameLoop(Window* window) {
 		FPS.calculate(window->gameRenderer); // calculate and display framerate
 		stats.display(player.getStats(), window->gameRenderer, 0, 775); // display player stats
 
-		for (int i = 0; i < level.enemies.size(); i++) {
-			level.enemies[i]->render(window->gameRenderer); // render enemies
-		}
-		
-		if (!player.bullets.empty()) {
-			for (int i = 0; i < player.bullets.size(); i++) {
-				player.bullets[i]->render(window->gameRenderer);
-			}
-		}
+		for (int i = 0; i < level.enemies.size(); i++) level.enemies[i]->render(window->gameRenderer); // render enemies
+
+		for (int i = 0; i < player.bullets.size(); i++) player.bullets[i]->render(window->gameRenderer); // render bullets
 
 		player.render(window->gameRenderer);
 		SDL_RenderPresent(window->gameRenderer); // render to window

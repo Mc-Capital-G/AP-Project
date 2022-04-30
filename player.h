@@ -4,6 +4,7 @@
 #include <sstream>
 #include "bullet.h"
 #include <vector>
+#include "timer.h"
 
 class player : public renderObj {
 public:
@@ -12,6 +13,7 @@ public:
 	std::string getStats();
 	std::vector<bullet*> bullets;
 	void fire();
+	void handleBullets();
 private:
 	int lives;
 	int score;

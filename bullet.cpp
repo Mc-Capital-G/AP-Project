@@ -4,8 +4,10 @@
 bullet::bullet(int bulletType, int x, int y, SDL_Renderer* renderer) {
 	createTexture("assets/bullet.png", renderer);
 	type = bulletType;
+	posX = x;
+	posY = y;
 	switch (type) {
-	case NORMAL || ENEMY:
+	case NORMAL:
 		dmg = 1;
 		speed = 10;
 		break;
@@ -13,12 +15,13 @@ bullet::bullet(int bulletType, int x, int y, SDL_Renderer* renderer) {
 		dmg = 5;
 		speed = 5;
 		break;
+	case ENEMY:
+		dmg = 1;
+		speed = 10;
+		break;
 	}
 }
 
 void bullet::move() {
 	posY -= speed;
-	if (posY < 0) {
-
-	}
 }
