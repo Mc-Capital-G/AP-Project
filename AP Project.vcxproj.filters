@@ -51,6 +51,9 @@
     <ClCompile Include="level.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="bullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="closeSDL.h">
@@ -92,6 +95,9 @@
     <ClInclude Include="level.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="bullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\square.png">
@@ -107,6 +113,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="assets\stars.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="assets\bullet.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -9,6 +9,9 @@ player::player(SDL_Renderer* renderer) {
 	createTexture("assets/playerNew.png", renderer);
 	posY = 725;
 	posX = 300 - (width / 2);
+	bulletType = NORMAL;
+	bullets = {};
+	pointToRen = renderer;
 }
 
 void player::move(int direction) {
@@ -40,10 +43,22 @@ void player::move(int direction) {
 	if (posY > 725) {
 		posY = 725;
 	}
+	if (!bullets.empty()) {
+		for (int i = 0; i < bullets.size(); i++) {
+			bullets[i]->move();
+			if (bullets[i]->posY < 0) {
+				delete bullets[i];
+			}
+		}
+	}
 }
 
 std::string player::getStats() {
 	std::stringstream text; 
 	text << "SCORE:" << score << " HP:" << hp << " LIVES:" << lives;
 	return text.str();
+}
+
+void player::fire() {
+	bullets.emplace_back(new bullet(bulletType, posX, posY, pointToRen));
 }
