@@ -37,4 +37,3 @@ void renderObj::render(SDL_Renderer* renderer) {
 	SDL_Rect target = { posX, posY, width, height };
 	SDL_RenderCopy(renderer, tex, clip, &target);
 }
-

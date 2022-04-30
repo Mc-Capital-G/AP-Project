@@ -36,4 +36,3 @@ std::vector<int> inputHandler::handle() {
 	printf("\n");
 	return pressedKeys;
 }
-
