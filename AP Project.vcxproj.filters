@@ -131,5 +131,11 @@
     <Media Include="assets\theme.wav">
       <Filter>Resource Files</Filter>
     </Media>
+    <Media Include="assets\explosion.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="assets\laser.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>

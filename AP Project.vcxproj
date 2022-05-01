@@ -185,6 +185,8 @@
     <Font Include="assets\PublicPixel-0W5Kv.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Media Include="assets\explosion.wav" />
+    <Media Include="assets\laser.wav" />
     <Media Include="assets\theme.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
