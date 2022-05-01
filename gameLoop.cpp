@@ -26,11 +26,11 @@ void gameLoop(Window* window) {
 		
 		//handle input and move the player accordingly
 		handler.handle(); // get keyboard state
-		if (handler.keyState[SDL_SCANCODE_W]) player.move(UP);
-		if (handler.keyState[SDL_SCANCODE_D]) player.move(RIGHT);
-		if (handler.keyState[SDL_SCANCODE_A]) player.move(LEFT);
-		if (handler.keyState[SDL_SCANCODE_S]) player.move(DOWN);
-		if (handler.keyState[SDL_SCANCODE_RETURN]) player.fire(); // shoot a laser
+		if (handler.keyState[SDL_SCANCODE_W] || handler.keyState[SDL_SCANCODE_UP]) player.move(UP);
+		if (handler.keyState[SDL_SCANCODE_D] || handler.keyState[SDL_SCANCODE_RIGHT]) player.move(RIGHT);
+		if (handler.keyState[SDL_SCANCODE_A] || handler.keyState[SDL_SCANCODE_LEFT]) player.move(LEFT);
+		if (handler.keyState[SDL_SCANCODE_S] || handler.keyState[SDL_SCANCODE_DOWN]) player.move(DOWN);
+		if (handler.keyState[SDL_SCANCODE_RETURN] || handler.keyState[SDL_SCANCODE_SPACE]) player.fire(); // shoot a laser
 		
 		for (int i = 0; i < level.enemies.size(); i++) level.enemies[i]->move(); // move enemies
 
