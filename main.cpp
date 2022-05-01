@@ -30,14 +30,22 @@ int main(int argc, char* argv[]) {
 			stars[i].createTexture("assets/stars.png", window.gameRenderer);
 		}
 
-		renderObj menuSelect;
-		menuSelect.createTexture("assets/border.png", window.gameRenderer);
+		renderObj logo;
+		logo.createTexture("assets/logo.png", window.gameRenderer);
+		logo.posX = 300 - logo.width/2;
+		logo.posY = 50;
+
+		Mix_Music* theme = Mix_LoadMUS("assets/theme.wav");
 
 		while (!handler.quit) {
 
+			if (Mix_PlayingMusic() == 0) {
+				Mix_PlayMusic(theme, -1);
+			}
+
 			handler.handle();
 
-			if (inputTimer.getTicks() > 75) {
+			if (inputTimer.getTicks() > 100) {
 				if (handler.keyState[SDL_SCANCODE_UP] || handler.keyState[SDL_SCANCODE_W]) menuOption--;
 				if (handler.keyState[SDL_SCANCODE_DOWN] || handler.keyState[SDL_SCANCODE_S]) menuOption++;
 				if (menuOption > 2) menuOption = 0;
@@ -71,15 +79,17 @@ int main(int argc, char* argv[]) {
 				stars[i].render(window.gameRenderer);
 			}
 
-			startGame.display("START GAME", window.gameRenderer, 300 - startGame.width / 2, 400 - startGame.height / 2);
-			startOptions.display("OPTIONS", window.gameRenderer, 300 - startOptions.width / 2, 600 - startOptions.width / 2);
-			credits.display("CREDITS", window.gameRenderer, 300 - credits.width / 2, 700 - credits.width / 2);
+			startGame.display("START GAME", window.gameRenderer, 300 - startGame.width / 2, 500 - startGame.height / 2);
+			startOptions.display("OPTIONS", window.gameRenderer, 300 - startOptions.width / 2, 700 - startOptions.width / 2);
+			credits.display("CREDITS", window.gameRenderer, 300 - credits.width / 2, 800 - credits.width / 2);
+			logo.render(window.gameRenderer);
 
 			SDL_RenderPresent(window.gameRenderer);
 
 			if (handler.keyState[SDL_SCANCODE_RETURN]) {
 				switch(menuOption) {
 				case 0:
+					Mix_HaltMusic();
 					gameLoop(&window); // start game
 					break;
 				case 1:

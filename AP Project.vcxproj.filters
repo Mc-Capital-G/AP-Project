@@ -118,10 +118,18 @@
     <Image Include="assets\bullet.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="assets\logo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="assets\PublicPixel-0W5Kv.ttf">
       <Filter>Resource Files</Filter>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="assets\theme.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>

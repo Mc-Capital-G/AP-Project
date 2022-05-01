@@ -175,6 +175,7 @@
   <ItemGroup>
     <Image Include="assets\bullet.png" />
     <Image Include="assets\enemy.png" />
+    <Image Include="assets\logo.png" />
     <Image Include="assets\player.png" />
     <Image Include="assets\playerNew.png" />
     <Image Include="assets\square.png" />
@@ -182,6 +183,9 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="assets\PublicPixel-0W5Kv.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="assets\theme.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
