@@ -9,6 +9,7 @@ level::level(SDL_Renderer* ren) {
 	totalWaves = 5;
 	enemiesPerWave = 12;
 	initEnemies(enemiesPerWave);
+	gameOver = false;
 }
 
 void level::initEnemies(int enemyNum) {

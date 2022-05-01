@@ -10,7 +10,7 @@ public:
 	enemy(SDL_Renderer* renderer);
 	void move();
 	bool handleHit();
-	bullet* fire(SDL_Renderer* renderer);
+	bullet* fire(SDL_Renderer* renderer, int time);
 	int pointVal;
 	timer fireTimer;
 	int nextShot;

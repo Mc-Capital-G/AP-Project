@@ -11,6 +11,7 @@ public:
 	std::vector<enemy*> enemies;
 	std::vector<bullet*> bullets;
 	void handleBullets();
+	bool gameOver;
 private:
 	void initEnemies(int enemyNum);
 	SDL_Renderer* renderer;

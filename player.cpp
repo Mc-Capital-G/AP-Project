@@ -11,6 +11,7 @@ player::player(SDL_Renderer* renderer) {
 	bullets = {};
 	pointToRen = renderer;
 	fireTimer.start();
+	alive = true;
 }
 
 void player::move(int direction) {
@@ -76,4 +77,22 @@ void player::handleBullets() {
 			std::advance(ptr, 1);
 		}
 	}
+}
+
+void player::getHit() {
+	alive = false;
+	posX = -100;
+	posY = -100;
+	respawnTimer.start();
+}
+
+bool player::respawn() {
+	if (lives > 0) {
+		alive = true;
+		posX = 300 - width / 2;
+		posY = 725;
+		lives--;
+	}
+	respawnTimer.pause();
+	return alive;
 }

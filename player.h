@@ -15,6 +15,10 @@ public:
 	std::vector<bullet*> bullets;
 	void fire();
 	void handleBullets();
+	void getHit();
+	bool respawn();
+	timer respawnTimer;
+	bool alive;
 	int score;
 private:
 	int lives;
