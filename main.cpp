@@ -17,8 +17,7 @@ int main(int argc, char* argv[]) {
 	}
 	else {
 		inputHandler handler;
-		timer inputTimer;
-		inputTimer.start();
+		handler.inputTimer.start();
 
 		font startGame("assets/PublicPixel-0W5Kv.ttf", 50), startOptions("assets/PublicPixel-0W5Kv.ttf", 30), credits("assets/PublicPixel-0W5Kv.ttf", 30);
 		font text("assets/PublicPixel-0W5Kv.ttf", 20);
@@ -50,13 +49,13 @@ int main(int argc, char* argv[]) {
 
 			// get input
 			handler.handle();
-			if (inputTimer.getTicks() > 100) {
+			if (handler.inputTimer.getTicks() > 100) {
 				if (handler.keyState[SDL_SCANCODE_UP] || handler.keyState[SDL_SCANCODE_W]) menuOption--;
 				if (handler.keyState[SDL_SCANCODE_DOWN] || handler.keyState[SDL_SCANCODE_S]) menuOption++;
 				if (handler.keyState[SDL_SCANCODE_RETURN] || handler.keyState[SDL_SCANCODE_SPACE]) select = true;
 				if (menuOption > 2) menuOption = 0;
 				if (menuOption < 0) menuOption = 2;
-				inputTimer.start();
+				handler.inputTimer.start();
 			}
 
 			// show which menu option is selected by changing text color of option
@@ -85,7 +84,7 @@ int main(int argc, char* argv[]) {
 					switch (menuOption) {
 					case 0: // start game
 						Mix_HaltMusic();
-						gameLoop(&window);
+						gameLoop(&window, &handler);
 						break;
 					case 1: // go to controls
 						menu = 1;

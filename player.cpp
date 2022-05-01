@@ -44,9 +44,15 @@ void player::move(int direction) {
 	}
 }
 
-std::string player::getStats() {
+std::string player::getScore() {
 	std::stringstream text; 
-	text << "SCORE:" << score << " LIVES:" << lives;
+	text << "SCORE " << score;
+	return text.str();
+}
+
+std::string player::getLives() {
+	std::stringstream text;
+	text << "LIVES " << lives;
 	return text.str();
 }
 

@@ -27,5 +27,12 @@ bullet::bullet(int bulletType, int x, int y, SDL_Renderer* renderer) {
 }
 
 void bullet::move() {
-	posY -= speed;
+	switch (type) {
+	case NORMAL:
+		posY -= speed;
+		break;
+	case ENEMY:
+		posY += speed;
+		break;
+	}
 }

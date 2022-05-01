@@ -10,6 +10,10 @@ enemy::enemy(SDL_Renderer* renderer) {
 	distMoved = 0;
 	createTexture("assets/enemy.png", renderer);
 	pointVal = 100;
+	fireTimer.start();
+	std::default_random_engine generator;
+	std::uniform_int_distribution<int> distributor(1, 10);
+	nextShot = distributor(generator);
 }
 
 void enemy::move() { // makes enemies move back and forth on the screen
@@ -54,4 +58,10 @@ bool enemy::handleHit() {
 	}
 	SDL_SetTextureColorMod(tex, color.r, color.g, color.b);
 	return false;
+}
+
+bullet* enemy::fire(SDL_Renderer* renderer) {
+	fireTimer.start();
+	bullet* ptr = new bullet(ENEMY, posX + width/2, posY, renderer);
+	return ptr;
 }

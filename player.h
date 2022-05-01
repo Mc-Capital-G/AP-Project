@@ -10,7 +10,8 @@ class player : public renderObj {
 public:
 	player(SDL_Renderer* renderer);
 	void move(int direction);
-	std::string getStats();
+	std::string getScore();
+	std::string getLives();
 	std::vector<bullet*> bullets;
 	void fire();
 	void handleBullets();

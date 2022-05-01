@@ -9,7 +9,8 @@
 #include "fpsDisplay.h"
 #include "player.h"
 #include "level.h"
+#include <random>
 #include <iterator>
 
 
-void gameLoop(Window* window);
+void gameLoop(Window* window, inputHandler* handler);
