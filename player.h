@@ -17,8 +17,6 @@ public:
 	int score;
 private:
 	int lives;
-	int hp;
-	int dmg;
 	int speed;
 	int bulletType;
 	SDL_Renderer* pointToRen;

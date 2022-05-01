@@ -3,8 +3,6 @@
 player::player(SDL_Renderer* renderer) {
 	score = 0;
 	lives = 3;
-	hp = 3;
-	dmg = 1;
 	speed = 5;
 	createTexture("assets/playerNew.png", renderer);
 	posY = 725;
@@ -48,7 +46,7 @@ void player::move(int direction) {
 
 std::string player::getStats() {
 	std::stringstream text; 
-	text << "SCORE:" << score << " HP:" << hp << " LIVES:" << lives;
+	text << "SCORE:" << score << " LIVES:" << lives;
 	return text.str();
 }
 
