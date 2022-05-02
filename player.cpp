@@ -93,6 +93,7 @@ bool player::respawn() {
 		posY = 725;
 		lives--;
 	}
+	respawnTimer.start();
 	respawnTimer.pause();
 	return alive;
 }
