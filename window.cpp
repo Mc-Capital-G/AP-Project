@@ -20,7 +20,7 @@ bool Window::init(int screenWidth, int screenHeight) {
 		return false;
 	}
 	else {
-		gameWindow = SDL_CreateWindow("AP Project", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screenWidth, screenHeight, SDL_WINDOW_INPUT_FOCUS);
+		gameWindow = SDL_CreateWindow("Galaxy Raiders", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, screenWidth, screenHeight, SDL_WINDOW_INPUT_FOCUS);
 		if (gameWindow == NULL) {
 			printf("SDL Window could not be created. SDL Error: %s\n", SDL_GetError());
 			return false;
