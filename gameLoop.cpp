@@ -85,7 +85,7 @@ void gameLoop(Window* window, inputHandler* handler) {
 				for (int i = 0; i < level.enemies.size(); i++) {
 					level.enemies[i]->move();
 					if (level.enemies[i]->fireTimer.getTicks() >= level.enemies[i]->nextShot * 100 && player.alive) {
-						std::uniform_int_distribution<int> distributor(10, level.enemyFireSpeed);
+						std::uniform_int_distribution<int> distributor(1, level.enemyFireSpeed);
 						level.bullets.emplace_back(level.enemies[i]->fire(window->gameRenderer, distributor(randomEngine)));
 						Mix_PlayChannel(-1, laser, 0);
 					}
