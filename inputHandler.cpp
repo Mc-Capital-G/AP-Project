@@ -30,9 +30,5 @@ std::vector<int> inputHandler::handle() {
 			}
 			break;
 	}
-	for (int i = 0; i < pressedKeys.size(); i++) {
-		printf("%d, ", pressedKeys[i]);
-	}
-	printf("\n");
 	return pressedKeys;
 }

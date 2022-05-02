@@ -4,6 +4,7 @@
 #include <sstream>
 #include <vector>
 #include <iterator>
+#include <random>
 
 class level {
 public:
@@ -20,6 +21,7 @@ public:
 	bool waveSetup;
 	bool displayLevel;
 	int currentWaveNum;
+	int enemyFireSpeed;
 private:
 	void initEnemies(int enemyNum);
 	SDL_Renderer* renderer;

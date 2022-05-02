@@ -12,9 +12,11 @@ level::level(SDL_Renderer* ren) {
 	start = false;
 	waveSetup = false;
 	displayLevel = false;
+	enemyFireSpeed = 100;
 }
 
 void level::initEnemies(int enemyNum) {
+	std::default_random_engine randomEngine(SDL_GetTicks());
 	int prevPosX = 70;
 	int prevPosY = -300;
 	for (int i = 0; i < enemyNum; i++) {
@@ -23,8 +25,10 @@ void level::initEnemies(int enemyNum) {
 			prevPosX = 70;
 			prevPosY += 40;
 		}
+		std::uniform_int_distribution<int> distributor(10, enemyFireSpeed);
 		enemies[i]->posX = prevPosX + 60;
 		enemies[i]->posY = prevPosY;
+		enemies[i]->nextShot = distributor(randomEngine);
 		prevPosX = enemies[i]->posX;
 	}
 }
@@ -54,6 +58,7 @@ void level::init() {
 	waveSetup = false;
 	totalWaves = levelNum;
 	enemiesPerWave = 10 + levelNum * 2;
+	enemyFireSpeed = 100 - levelNum * 2;
 	initEnemies(enemiesPerWave);
 	start = true;
 }

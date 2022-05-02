@@ -48,6 +48,7 @@ void gameLoop(Window* window, inputHandler* handler) {
 			if (handler->keyState[SDL_SCANCODE_ESCAPE] && player.alive) {
 				int menuOpt = 0;
 				bool unpause = false;
+				for (int i = 0; i < level.enemies.size(); i++) level.enemies[i]->fireTimer.pause();
 				do {
 					handler->handle();
 					if (handler->keyState[SDL_SCANCODE_W] || handler->keyState[SDL_SCANCODE_UP]) menuOpt--;
@@ -74,6 +75,7 @@ void gameLoop(Window* window, inputHandler* handler) {
 
 				} while (!unpause && !handler->quit);
 				handler->inputTimer.start();
+				for (int i = 0; i < level.enemies.size(); i++) level.enemies[i]->fireTimer.unpause();
 				if (menuOpt == 1) return;
 			}
 
@@ -83,14 +85,17 @@ void gameLoop(Window* window, inputHandler* handler) {
 				for (int i = 0; i < level.enemies.size(); i++) {
 					level.enemies[i]->move();
 					if (level.enemies[i]->fireTimer.getTicks() >= level.enemies[i]->nextShot * 100 && player.alive) {
-						std::uniform_int_distribution<long> distributor(10, 19);
+						std::uniform_int_distribution<int> distributor(10, level.enemyFireSpeed);
 						level.bullets.emplace_back(level.enemies[i]->fire(window->gameRenderer, distributor(randomEngine)));
 						Mix_PlayChannel(-1, laser, 0);
 					}
 				}
 			}
 			else { // move enemies into position
-				for (int i = 0; i < level.enemies.size(); i++) level.enemies[i]->posY += 1.5;
+				for (int i = 0; i < level.enemies.size(); i++) {
+					level.enemies[i]->posY += 1.5;
+					level.enemies[i]->fireTimer.start(); // prevents every enemy from shooting at once when they get into position
+				}
 				if(level.currentWaveNum == 0) level.displayLevel = true;
 				if (level.enemies[0]->posY >= 100) level.waveSetup = true;
 			}
@@ -132,6 +137,7 @@ void gameLoop(Window* window, inputHandler* handler) {
 						level.bullets.erase(bulletPtr);
 						player.getHit();
 						Mix_PlayChannel(-1, explosion, 0);
+						for (int i = 0; i < level.enemies.size(); i++) level.enemies[i]->fireTimer.pause();
 						break;
 					}
 					advance(bulletPtr, 1);
@@ -144,6 +150,7 @@ void gameLoop(Window* window, inputHandler* handler) {
 						level.gameOver = true;
 						Mix_PlayChannel(-1, gameOver, 0);
 					}
+					for (int i = 0; i < level.enemies.size(); i++) level.enemies[i]->fireTimer.unpause();
 				}
 			}
 
@@ -173,7 +180,7 @@ void gameLoop(Window* window, inputHandler* handler) {
 		for (int i = 0; i < player.bullets.size(); i++) player.bullets[i]->render(window->gameRenderer); // render bullets
 		for (int i = 0; i < level.bullets.size(); i++) level.bullets[i]->render(window->gameRenderer); // render enemy bullets
 
-		if (level.displayLevel) text.display(level.getLevel(), window->gameRenderer, 225, 300);
+		if (level.displayLevel) text.display(level.getLevel(), window->gameRenderer, 225, 250);
 
 		player.render(window->gameRenderer); // render player 
 
